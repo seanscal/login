@@ -1,0 +1,16 @@
+version: '3.6'
+services:
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      - DATABASE_HOST=127.0.0.1
+      - POSTGRES_USER=sean
+      - POSTGRES_PASSWORD=Seanpassword!123
+      - POSTGRES_DB=buddie
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/buddie_user.sql:/docker-entrypoint-initdb.d/2-user.sql
+
+    container_name: buddie-postgres
